@@ -1,0 +1,25 @@
+#@Ambertjc le 13/11/2017
+version: '2' 
+services:
+ thermonode:
+  image: thermo-node-red:latest
+  #volumes:
+   #- ./data:/data
+  ports:
+   - 1880:1880
+  links:
+   - mosquitto:broker
+   - api:api
+ mosquitto:
+  image: eclipse-mosquitto:latest
+  ports:
+   - 1883:1883
+
+ api:
+  image: artificial/docker-sails:latest
+  #user: "${UID}:${GID}"
+  command: sails lift
+  volumes:
+    - ./api:/server
+  ports:
+   - 1337:1337

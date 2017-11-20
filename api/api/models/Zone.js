@@ -7,15 +7,17 @@
 
 module.exports = {
 
-  attributes: {
-    nom:{
-      type:'string',
-      required:true,
-      unique:true
-    },
-    description:{
-      type:'string',
+    attributes: {
+        nom: {
+            type: 'string',
+            required: true,
+            unique: true
+        },
+        description: {
+            type: 'string',
+        },
+        icon: {
+            type: 'string'
+        }
     }
-  }
 };
-
